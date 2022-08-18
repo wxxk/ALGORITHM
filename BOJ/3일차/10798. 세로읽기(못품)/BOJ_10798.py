@@ -1,15 +1,9 @@
 import sys
 sys.stdin = open('10798.txt')
 
-A = list(input())
-B = list(input())
-C = list(input())
-D = list(input())
-E = list(input())
+words = [input() for _ in range(5)]
 
-for i in range(len(max(A, B, C, D, E))):
-    print(A[i], end='')
-    print(B[i], end='')
-    print(C[i], end='')
-    print(D[i], end='')
-    print(E[i], end='')
+for i in range(max(len(w) for w in words)):
+    for j in range(5):
+        if i < len(words[j]):
+            print(words[j][i], end='')
