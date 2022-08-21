@@ -5,8 +5,9 @@ while True:
     words = input()
     if words == '.':
         break
-
+    
     PS = []
+    # temp = True
 
     for i in words:
         if i == '[' or i == '(':
@@ -17,6 +18,7 @@ while True:
                 PS.pop()
             else:
                 PS.append(i)
+                # temp = False
                 break
 
         elif i == ')':
@@ -24,9 +26,15 @@ while True:
                 PS.pop()
             else:
                 PS.append(i)
+                # temp = False
                 break
 
     if len(PS) == 0:
         print('yes')
     else:
         print('no')
+
+    # if temp == True and not PS:
+    #     print('yes')
+    # else:
+    #     print('no')
