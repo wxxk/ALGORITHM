@@ -7,6 +7,7 @@ while True:
         break
     
     PS = []
+
     # temp = True
 
     for i in words:
@@ -29,7 +30,7 @@ while True:
                 # temp = False
                 break
 
-    if len(PS) == 0:
+    if not PS :
         print('yes')
     else:
         print('no')
