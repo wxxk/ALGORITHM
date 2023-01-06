@@ -26,6 +26,7 @@ for _ in range(m):
     matrix[s].append(e)
     matrix[e].append(s)
 
+
 for i in matrix:
     i.sort()
 
