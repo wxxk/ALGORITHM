@@ -3,12 +3,14 @@ import sys
 sys.stdin = open("input.txt")
 
 n = int(input())
+
 mod = 1000000
-fibo = [0, 1]
-p = mod // 10 * 15
+fibo = 15 * mod // 10
 
-for i in range(2, p):
-    fibo.append(fibo[i - 1] + fibo[i - 2])
-    fibo[i] %= mod
+dp = [0] * fibo
+dp[1] = 1
 
-print(fibo[n % p])
+for i in range(2, fibo):
+    dp[i] = (dp[i - 1] + dp[i - 2]) % mod
+
+print(dp[n % fibo])
