@@ -10,7 +10,7 @@ for i in set_reserve:
     if i - 1 in set_lost:
         set_lost.remove(i - 1)
 
-    elif i + i in set_lost:
+    elif i + 1 in set_lost:
         set_lost.remove(i + 1)
 
 answer = n - len(set_lost)
