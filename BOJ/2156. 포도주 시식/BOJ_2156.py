@@ -18,4 +18,4 @@ if n > 1:
 for i in range(3, n + 1):
     dp.append(max(dp[i - 1], dp[i - 3] + arr[i - 1] + arr[i], dp[i - 2] + arr[i]))
 
-print(dp)
+print(dp[-1])
