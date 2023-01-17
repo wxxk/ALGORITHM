@@ -1,5 +1,3 @@
-from pprint import pprint
-
 board = [
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
@@ -8,7 +6,6 @@ board = [
     [0, 0, 0, 0, 0],
 ]
 n = len(board)
-visited = [[False] * (n) for _ in range(n)]
 dx = [-1, 1, 0, 0, -1, -1, 1, 1]
 dy = [0, 0, -1, 1, -1, 1, -1, 1]
 stack = []
@@ -16,8 +13,7 @@ cnt = 0
 
 for i in range(n):
     for j in range(n):
-        if board[i][j] == 1 and not visited[i][j]:
-            visited[i][j] = True
+        if board[i][j] == 1:
             stack.append((i, j))
 
 for x, y in stack:
