@@ -1,50 +1,66 @@
 from collections import deque
 import sys
 
-sys.stdin = open("input.txt")
-
+# sys.stdin = open("input.txt")
 input = sys.stdin.readline
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
 
-w, h = map(int, input().split())
-matrix = [list(input().strip()) for _ in range(h)]
-visited = [[False] * w for _ in range(h)]
+t = int(input())
 
-fire = deque()
-person = deque()
+for _ in range(t):
+    w, h = map(int, input().split())
+    matrix = [list(input().strip()) for _ in range(h)]
+    visited = [[0] * w for _ in range(h)]
+    queue = deque()
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0, -1, 1]
+    flag = False
 
-for i in range(h):
-    for j in range(w):
-        if matrix[i][j] == "*":
-            fire.append((i, j))
+    for i in range(h):
+        for j in range(w):
+            if matrix[i][j] == "*":
+                queue.append((i, j))
 
-        elif matrix[i][j] == "@":
-            person.append((i, j, 1))
+    for i in range(h):
+        for j in range(w):
+            if matrix[i][j] == "@":
+                queue.append((i, j))
+                visited[i][j] = 1
 
+                if i == h - 1 or i == 0 or j == w - 1 or j == 0:
+                    print(visited[i][j])
+                    flag = True
+                    break
+                else:
+                    break
 
-while fire and person:
-    fh, fw = fire.popleft()
-    ph, pw, cnt = person.popleft()
-    visited[fh][fw], visited[ph][pw] = True, True
+    while queue:
+        x, y = queue.popleft()
+        if flag == True:
+            break
 
-    if ph == (h - 1) or pw == (w - 1):
-        print(cnt)
-        break
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-    for i in range(4):
-        fx, fy = fh + dx[i], fw + dy[i]
-        px, py = ph + dx[i], pw + dy[i]
+            if 0 <= nx < h and 0 <= ny < w:
+                if (
+                    "@" in matrix[x][y]
+                    and "*" not in matrix[nx][ny]
+                    and matrix[nx][ny] != "#"
+                ):
+                    if visited[nx][ny] == 0:
+                        matrix[nx][ny] = "@"
+                        visited[nx][ny] = visited[x][y] + 1
+                        if nx == h - 1 or nx == 0 or ny == w - 1 or ny == 0:
+                            print(visited[nx][ny])
+                            flag = True
+                            break
+                        queue.append((nx, ny))
 
-        if 0 <= fx < h and 0 <= fy < w:
-            if not visited[fx][fy] and matrix[fx][fy] != "#":
-                visited[fx][fy] = True
-                matrix[fx][fy] = "*"
-                fire.append((fx, fy))
-
-        if 0 <= px < h and 0 < py < w:
-            if not visited[px][py] and matrix[px][py] == ".":
-                visited[px][py] = True
-                matrix[px][py] = "@"
-                person.append((px, py, cnt + 1))
+                if "*" in matrix[x][y]:
+                    if matrix[nx][ny] == "@" or matrix[nx][ny] == ".":
+                        matrix[nx][ny] += "*"
+                        queue.append((nx, ny))
+    if flag == False:
+        print("IMPOSSIBLE")
