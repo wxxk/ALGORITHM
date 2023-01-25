@@ -16,6 +16,7 @@ while queue:
 
     if now == S:
         print(time)
+        # print(visited[now][now])
         break
 
     # 1번 조건 : 복사
