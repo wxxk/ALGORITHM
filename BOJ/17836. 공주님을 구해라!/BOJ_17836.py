@@ -32,7 +32,7 @@ while queue:
             if x == 1 and not visited[x][ny][nz]:
                 visited[x][ny][nz] = visited[x][y][z] + 1
                 queue.append((x, ny, nz))
-            elif x == 0 and not visited[x][ny][nz] and matrix[ny][nz] == 2:
+            elif x == 0 and not visited[x + 1][ny][nz] and matrix[ny][nz] == 2:
                 visited[1][ny][nz] = visited[x][y][z] + 1
                 queue.append((1, ny, nz))
             elif x == 0 and not visited[x][ny][nz] and matrix[ny][nz] == 0:
