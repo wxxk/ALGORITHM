@@ -1,13 +1,14 @@
 from collections import deque
 import sys
 
-# sys.stdin = open("input.txt")
+sys.stdin = open("input.txt")
 input = sys.stdin.readline
 
 n, m, t = map(int, input().split())
 
 matrix = [list(map(int, input().split())) for _ in range(n)]
 visited = [[[0 for _ in range(m)] for _ in range(n)] for _ in range(2)]
+print(visited)
 queue = deque()
 queue.append((0, 0, 0))
 dy = [-1, 1, 0, 0]
