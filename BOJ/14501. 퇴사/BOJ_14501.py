@@ -1,6 +1,6 @@
 import sys
 
-sys.stdin = open("input.txt")
+# sys.stdin = open("input.txt")
 
 n = int(input())
 t = []
@@ -25,4 +25,4 @@ for i in range(n - 1, -1, -1):
 
         dp[i] = max(dp[i + 1], dp[t[i] + i] + p[i])
 
-print(dp)
+print(dp[0])
