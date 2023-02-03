@@ -1,7 +1,7 @@
 from heapq import heappop, heappush
 import sys
 
-# sys.stdin = open("input.txt")
+sys.stdin = open("input.txt")
 input = sys.stdin.readline
 INF = sys.maxsize
 
@@ -24,7 +24,7 @@ while True:
 
         # 종료 조건
         if x == n - 1 and y == n - 1:
-            print("Problem %s: %d" % (cnt, visited[x][y]))
+            print(f"Problem {cnt}: {cost}")
             break
 
         if cost > visited[x][y]:
