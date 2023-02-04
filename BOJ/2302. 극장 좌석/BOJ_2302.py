@@ -17,11 +17,12 @@ answer = 1
 start = 0
 
 for i in range(m):
+    # 1. 시작점 ~ 첫 VIP석 사이 일반석의 갯수
+    # 2. VIP석과 VIP석 사이 일반석 갯수
     end = vip[i]
     answer *= dp[end - start - 1]
-    # print(start, end-1)
     start = end
 
-# print(n, start)
+# 3. 마지막 VIP석과 마지막점 사이 일반석의 갯수
 answer *= dp[n-start]
 print(answer)
