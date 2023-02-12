@@ -1,11 +1,11 @@
 import sys
 
-sys.stdin = open("input.txt")
+# sys.stdin = open("input.txt")
 
 input = sys.stdin.readline
 n, k = map(int, input().split())
 coin = [int(input()) for _ in range(n)]
-dp = [0] * 1001
+dp = [0] * 10001
 dp[0] = 1
 
 for i in coin:
