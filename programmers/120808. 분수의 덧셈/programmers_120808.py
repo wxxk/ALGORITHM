@@ -1,15 +1,19 @@
+def solution(denom1, numer1, denom2, numer2):
+    denom = denom1 * denom2
+    numer = (numer1 * denom2) + (numer2 * denom1)
+
+    n, m = max(denom, numer), min(denom, numer)
+
+    while m > 0:
+        n, m = m, n % m
+
+    answer = [numer // n, denom // n]
+    return answer
+
+
 numer1 = 1
 denom1 = 2
 numer2 = 3
 denom2 = 4
 
-max_denom = max(denom1, denom2)
-min_denom = min(denom1, denom2)
-
-temp = max_denom // min_denom
-
-max_numer = max(numer1, numer2)
-min_numer = min(numer1, numer2)
-
-answer = [max_numer + (min_numer * temp), max_denom]
-print(answer)
+print(solution(denom1, numer1, denom2, numer2))
