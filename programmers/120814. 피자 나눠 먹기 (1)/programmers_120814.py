@@ -16,4 +16,3 @@ def solution(n):
 
 
 print(solution(n))
-print(7 % 7)
