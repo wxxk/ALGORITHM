@@ -15,7 +15,9 @@ for _ in range(m):
     maps[e].append((d, l))
 visited = [INF] * (n + 1)
 q = []
+
 for i in friend:
+    # 친구 집에서 각 지점의 최단거리를 구한다.
     heappush(q, (0, i))
 
 while q:
