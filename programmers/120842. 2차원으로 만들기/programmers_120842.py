@@ -14,7 +14,7 @@ def solution(num_list, n):
     return answer
 
 
-num_list = [1, 2, 3, 4, 5, 6, 7, 8]
-n = 2
+num_list = [100, 95, 2, 4, 5, 6, 18, 33, 948]
+n = 3
 
 print(solution(num_list, n))
