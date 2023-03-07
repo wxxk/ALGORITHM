@@ -10,7 +10,7 @@ def solution(n):
                 answer.append(d)
                 n = n / d
         else:
-            d = d + 1
+            d += 1
     return answer
 
 
