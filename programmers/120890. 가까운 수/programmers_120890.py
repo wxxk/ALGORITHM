@@ -1,7 +1,8 @@
 def solution(array, n):
     answer = 0
     min = 0
-    array.sort()
+
+    array.sort()  # 가까운 수가 여러 개일 경우 더 작은 수를 return해야 하기 때문에
     for i in array:
         if n - i == 0:
             return i
