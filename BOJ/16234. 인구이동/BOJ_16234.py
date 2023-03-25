@@ -47,7 +47,7 @@ while True:
                 if len(union) > 1:  # 연합 국가가 2개 이상인 경우
                     unions.append((union, total_pop))
 
-    if not unions:
+    if not unions:  # 모든 연합이 없어졌다면 종료
         break
 
     for union, total_pop in unions:
