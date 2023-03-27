@@ -1,6 +1,6 @@
 import sys
 
-# sys.stdin = open("input.txt")
+sys.stdin = open("input.txt")
 input = sys.stdin.readline
 
 back = list(input())
@@ -18,7 +18,7 @@ for i in range(len(back)):
         temp *= 3
 
     elif back[i] == ")":
-        if not stack or stack[-1] == "[":
+        if not stack or stack[-1] != "(":
             answer = 0
             break
         if back[i - 1] == "(":
@@ -26,8 +26,8 @@ for i in range(len(back)):
         stack.pop()
         temp //= 2
 
-    else:
-        if not stack or stack[-1] == "(":
+    elif back[i] == "]":
+        if not stack or stack[-1] != "[":
             answer = 0
             break
         if back[i - 1] == "[":
