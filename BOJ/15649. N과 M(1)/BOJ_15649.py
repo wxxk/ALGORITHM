@@ -1,24 +1,26 @@
 import sys
 
-# sys.stdin = open("input.txt")
+# sys.stdin = open('input.txt')
 input = sys.stdin.readline
 
+n, m = map(int, input().split())
+res = []
+visited = [False] * (n + 1)
 
-def back():
-    if len(ans) == m:
-        print(" ".join(map(str, ans)))
+""" 중복 없이 M개를 고른 수열"""
 
-        return
+
+def back(start):
+    if len(res) == m:
+        print(*res)
 
     for i in range(1, n + 1):
-        if i not in ans:
-            ans.append(i)
-            back()
-            ans.pop()
+        if not visited[i]:
+            visited[i] = True
+            res.append(i)
+            back(i)
+            visited[i] = False
+            res.pop()
 
 
-# n = n까지 // m개의 수
-n, m = map(int, input().split())
-ans = []
-
-back()
+back(1)

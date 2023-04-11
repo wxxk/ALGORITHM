@@ -35,4 +35,18 @@ def back_2(start):
             res.pop()
 
 
-back_2(1)
+# 사전 순으로 증가
+def back_3(start):
+    if len(res) == m:
+        print(*res)
+        return
+
+    for i in range(1, n + 1):
+        visited[i] = True
+        res.append(i)
+        back_3(i)
+        visited[i] = False
+        res.pop()
+
+
+back_3(1)
