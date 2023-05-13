@@ -1,0 +1,18 @@
+5
+1
+2
+1
+2
+1import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+dic = {}
+for _ in range(n):
+    num = int(input())
+    dic[num] = 1 + dic.get(num, 0)
+
+dic = sorted(dic.items(), key=lambda x: (-x[1], x[0]))
+
+print(dic[0][0])
