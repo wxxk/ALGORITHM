@@ -38,10 +38,6 @@ for _ in range(T):
     while hq:
         x, y, cost = heappop(hq)
 
-        if x == mx and y == my:
-            print(visited[mx][my])
-            break
-
         if cost > visited[x][y]:
             continue
 
@@ -64,5 +60,7 @@ for _ in range(T):
                     visited[nx][ny] = nc
                     heappush(hq, (nx, ny, nc))
 
+    if visited[mx][my] != INF:
+        print(visited[mx][my])
     else:
         print("NO")
