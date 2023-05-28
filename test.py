@@ -1,17 +1,13 @@
-import sys
+n = 4567
 
-sys.stdin = open("input.txt")
-input = sys.stdin.readline
-infos = []
 
-while True:
-    name, age, weight = map(str, input().split())
+def cal(n):
+    for i in range(2, n + 1):
+        if n % 2 == 0:
+            print("x")
+            break
 
-    if name == "#":
-        break
+    return n
 
-    if int(age) > 17 or int(weight) >= 80:
-        print(f"{name} Senior")
 
-    else:
-        print(f"{name} Junior")
+print(cal(n))
